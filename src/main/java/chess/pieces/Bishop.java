@@ -5,17 +5,17 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-public class Rook extends ChessPiece {
-
-    public Rook(Board board, Color color) {
+public class Bishop extends ChessPiece {
+    public Bishop(Board board, Color color) {
         super(board, color);
     }
 
     @Override
     public String toString() {
-        return "R";
+        return "B";
     }
 
+    @Override
     public boolean[][] possibleMoves() {
         boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
 
@@ -23,7 +23,7 @@ public class Rook extends ChessPiece {
 
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
-                if (i != 0 && j != 0) continue;
+                if (i == 0 || j == 0) continue;
 
                 p.setValues(position.getRow() + i, position.getColumn() + j);
 
